@@ -4,7 +4,6 @@
 int id;
 void displayEmployee()
 {
-    int id;
     char name[20], address[20], DOB[20];
     printf("Enter employee number: ");
     scanf("%d", &id);
@@ -66,6 +65,16 @@ int monthlySalary(int month)
 
     return grossSalary;
 }
+void yearlySalary()
+{
+    float total = 0;
+    for (int i = 1; i < 13; i++)
+    {
+        total += monthlySalary(i);
+    }
+    printf("\n");
+    printf("Employee %d's total yearly salary is %.2f", id, total);
+}
 int main()
 {
     int choice;
@@ -84,18 +93,11 @@ int main()
     {
         float salary = monthlySalary(0);
         printf("\n");
-        printf("\n");
         printf("Employee %d's salary is %.2f", id, salary);
     }
     else if (choice == 3)
     {
-        float total = 0;
-        for (int i = 1; i < 13; i++)
-        {
-            total += monthlySalary(i);
-        }
-        printf("\n");
-        printf("Total yearly salary is %.2f", total);
+        yearlySalary();
     }
     else
     {
