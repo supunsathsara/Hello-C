@@ -1,21 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int i = 1;
 int main()
 {
     int ID, smsUsage, callUsage, freeMins;
     float smsCharge, callCharge, rental, totBill, total = 0;
     char type;
-    for (int i = 1; i > 0; i++)
+    for (i; i > 0; i++)
     {
         printf("Enter Customer %d ID: ", i);
         scanf("%d", &ID);
         if (ID == -111)
         {
+            printf("All customers Bill total is %.2f\n", total);
             break;
         }
         printf("Enter Package type(A,B,C): ");
-        scanf("%s", &type);
+        scanf(" %s", &type);
         if (type == 'A')
         {
             callCharge = 1.50;
@@ -55,7 +57,6 @@ int main()
         totBill = rental + (callUsage * callCharge) + (smsUsage * smsCharge);
         printf("User %d's monthly rental is %.2f\n", ID, totBill);
         printf("----------------\n");
-        totBill += totBill;
+        total += total;
     }
-    printf("All customers Bill total is %.2f", totBill);
 }
