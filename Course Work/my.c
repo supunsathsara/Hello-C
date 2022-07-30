@@ -1,5 +1,3 @@
-// GADSE221F-017
-
 #include <stdio.h>
 #include <stdlib.h>
 char *fuelTypes[3] = {"Petrol", "Diesel", "LPG"};
@@ -30,6 +28,7 @@ int getPumpingDetails()
     for (int i = 1; i > 0; i++)
     {
         int QTY = 0;
+    there:
         printf("\nPumping Details:\n");
         printf(" 1- Petrol\n 2- Diesel\n 3- LPG\n 4- Exit\n");
         printf("Choose Fuel Type of vehicle %d: ", i);
@@ -38,16 +37,24 @@ int getPumpingDetails()
         {
             break;
         }
-        printf("Enter quantity pumped for vehicle %d(L): ", i);
-        scanf("%d", &QTY);
-        if (QTY > FuelQty[fuelType - 1])
+        else if (fuelType == 1 || fuelType == 2 || fuelType == 3)
         {
-            printf("Insufficient Fuel\n");
-            printf(" Going for the Next Vehicle\n");
-            continue;
-        }
 
-        currentFuelQty[fuelType - 1] += QTY;
+            printf("Enter quantity pumped for vehicle %d(L): ", i);
+            scanf("%d", &QTY);
+            if (QTY > FuelQty[fuelType - 1])
+            {
+                printf("Insufficient Fuel\n");
+                printf(" Going for the Next Vehicle\n");
+                continue;
+            }
+
+            currentFuelQty[fuelType - 1] += QTY;
+        }
+        else
+        {
+            goto there;
+        }
     }
     return 0;
 }
