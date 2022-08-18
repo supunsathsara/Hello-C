@@ -1,0 +1,20 @@
+Student id: 1
+Name: sadas
+Marks: 45
+Grade: Fail
+Student id: 2
+Name: sdfaa
+Marks: 3
+Grade: Fail
+Student id: 4
+Name: sada
+Marks: 49
+Grade: Fail
+Student id: 5
+Name: sdasf
+Marks: 89
+Grade: Pass
+Student id: 421
+Name: sdasd
+Marks: 100
+Grade: Pass

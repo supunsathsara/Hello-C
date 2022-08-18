@@ -2,30 +2,31 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
-    int count = 0, i, employeeNumber, yearsOfWorking, eligibleEmployees[4] = {0};
-    char designation;
-    for (i = 0; i < 3; i++)
+    int count = 0, yearsOfWorking;
+    char designation, employeeNumber;
+    char eligibleEmployees[50][2] = {""};
+    for (int i = 0; i < 3; i++)
     {
         printf("Enter the employee number: ");
-        scanf("%d", &employeeNumber);
+        scanf("%s", &employeeNumber);
         printf("Enter the designation: ");
         scanf("%s", &designation);
         printf("Enter the years of working: ");
         scanf("%d", &yearsOfWorking);
         if (yearsOfWorking >= 10)
         {
-            eligibleEmployees[count] = 0;
-            eligibleEmployees[count] = employeeNumber;
+            strcpy(eligibleEmployees[i][0], employeeNumber);
+            strcpy(eligibleEmployees[i][1], designation);
             count++;
         }
     }
-    printf("\nEligible Employees are:\n");
     for (int i = 0; i < count; i++)
     {
-        printf("%d\n", eligibleEmployees[i]);
+        printf("Employee number: %s - Designation:%s\n", eligibleEmployees[0][i], eligibleEmployees[1][i]);
     }
 
     printf("Number of employees who are eligible for the awards: %d\n", count);
